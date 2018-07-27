@@ -1,5 +1,5 @@
 /*
- * Author: Love Vashista
+ * Author: Love Vashist
  * 
  * */
 import org.openqa.selenium.By;
