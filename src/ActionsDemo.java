@@ -13,6 +13,8 @@ public class ActionsDemo {
 		Actions a = new Actions(driver);
 		a.moveToElement(driver.findElement(By.xpath("//a[@id='nav-link-accountList']"))).build().perform();
 		a.moveToElement(driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"))).click().keyDown(Keys.SHIFT).sendKeys("hello").doubleClick().moveToElement(driver.findElement(By.xpath("//a[@id='nav-link-accountList']"))).contextClick().build().perform();
+		//Another way of typing text in a TF in caps:
+		//driver.findElement(By.xpath("")).sendKeys(Keys.SHIFT,"text");
 		System.out.println("Success");
 	}
 }

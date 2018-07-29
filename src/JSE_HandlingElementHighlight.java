@@ -5,8 +5,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class JSE_HandlingElementHighlight {
@@ -25,8 +23,8 @@ public class JSE_HandlingElementHighlight {
 		driver.findElement(By.name("password")).sendKeys("Pass123");
 		
 		WebElement loginBtn = driver.findElement(By.xpath("//input[contains(@type,'submit')]"));
-		Thread.sleep(100); //Exceptional case, when we have a splash page and our processor is very fast, so sometimes the element, even after being located is not clickable, as we have a splash page in front of the
-		//flash(loginBtn, driver);
+		Thread.sleep(1000); //Exceptional case, when we have a splash page and our processor is very fast, so sometimes the element, even after being located is not clickable, as we have a splash page in front of the
+		flash(loginBtn, driver);
 		loginBtn.click();
 
 	}
