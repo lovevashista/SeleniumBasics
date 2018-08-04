@@ -36,6 +36,5 @@ public class HandlingSGArchitectureUsingTestScript {
 		//ii. What properties of your test (properties means I want to run it on chrome and on windows platform as set above using DesiredCapabilities object
 		
 		driver.get("http://www.google.com");
-		
 	}
 }

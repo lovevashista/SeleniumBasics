@@ -3,11 +3,13 @@ import java.util.concurrent.TimeUnit;
 import java.time.*;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.base.Function;
 
@@ -32,5 +34,16 @@ public class HandlingFluentWait {
 		});
 		
 		System.out.println("Element : " + element.getText());
+		
+		Wait<WebDriver> w = new FluentWait<WebDriver>(driver)
+				.withTimeout(null)
+				.ignoring(StaleElementReferenceException.class)
+				.pollingEvery(null);
+		
+		WebElement element2 = w.until(new Function<WebDriver, WebElement>(){
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.id(""));
+			}
+		});
 	}
 }

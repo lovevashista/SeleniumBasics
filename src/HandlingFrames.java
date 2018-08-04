@@ -29,5 +29,9 @@ public class HandlingFrames {
 		WebElement target = driver.findElement(By.id("droppable"));
 		a.dragAndDrop(source, target).build().perform();
 		System.out.println("Success");
+		
+		//driver.switchTo.frame(index / webelement)
+		//to get the total number of frames in dom - driver.findelements(By.tagName("iframe OR frameset"))
+		
 	}
 }

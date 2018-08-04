@@ -3,6 +3,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+/*Remember following things wrt table grids
+ * i. Get driver instance
+ * ii. From driver instance, create table instance
+ * iii. Use table instance for fetching the rows
+ * iv. Use table instance's "tagname:nth-child(index)" to fetch column values*/
 public class HandlingTableGrids {
 	public static void main(String[] args) {
 		
@@ -53,5 +58,10 @@ public class HandlingTableGrids {
 		}else {
 			System.out.println("Not Equal");
 		}
+//		WebElement tablee = driver.findElement(By.xpath("Table xpath"));
+//		int rows = tablee.findElements(By.xpath("//div[@class='Table all rows common class']")).size();
+//		int thirdcolvalues = tablee.findElements(By.xpath("//div[@class='Table all rows common class']/div[3]")).size();
+//		//OR if you want to use css then
+//		int thirdcolvalues = tablee.findElements(By.cssSelector("div[@class='Table all rows common class'] div:nth-child(3)")).size();
 	}
 }

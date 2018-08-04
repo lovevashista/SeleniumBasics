@@ -44,6 +44,7 @@ public class HandlingFileUploadingOnASite {
 		StringSelection ss = new StringSelection(src.getAbsolutePath()); //Get path for copying into clipboard
 		
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null); //Copy Path to clipboard.
+		
 		//Generic
 		r.keyPress(KeyEvent.VK_META);
 		r.keyPress(KeyEvent.VK_TAB);

@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class HandlingFramesFromHTMLView {
@@ -21,13 +22,6 @@ public class HandlingFramesFromHTMLView {
 		driver.switchTo().frame(framNo2);
 		driver.findElement(By.xpath(".//*[@id = 'recaptcha-anchor-next']/div[4")).click();
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	//Let's write a reusable code or we call it as a "Utility" (a function that can be used multiple times when
 	//required.)
@@ -80,4 +74,28 @@ public class HandlingFramesFromHTMLView {
 		return i; //will return the above identified frame.
 
 	}
+	
+	
+	
+//	public int findFrame(WebDriver driver, By by) {
+//		//1. Get the total number of frames in the dom
+//		//2. Check that the desired web element is present in which frame
+//		//3. Click on that element from that frame
+//		//4. Move back to the original window
+//		int i;
+//		int framecount = driver.findElements(By.tagName("iframe")).size();
+//		
+//		for(i = 0; i<framecount; i++) {
+//			driver.switchTo().frame(i);
+//			
+//			int count = driver.findElements(by).size();
+//			
+//			if(count > 0) {
+//				break;
+//			}else {
+//				System.out.println("Continue Looping");
+//			}
+//		}
+//		return i;
+//	}
 }

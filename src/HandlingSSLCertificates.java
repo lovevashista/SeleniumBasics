@@ -14,25 +14,24 @@ public class HandlingSSLCertificates {
 		//to your ChromeOptions.
 		
 		//DesiredCapabilities are general that you want to apply on the chrome browser
-		DesiredCapabilities ch = DesiredCapabilities.chrome();
+		DesiredCapabilities dc = DesiredCapabilities.chrome();
 		//Creating a chrome browser profile to accept insecure  certificates
-		ch.acceptInsecureCerts();
+		dc.acceptInsecureCerts();
 		
 		//Now another way of accepting either the insecure or ssl certificates specifically
 		//So in this case dont provide "ch.acceptInsecureCerts();"
 		//Instead use the following:
-		ch.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true); // for Insecure Certificates
-		ch.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true); // for SSL certificates
+		dc.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true); // for Insecure Certificates
+		dc.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true); // for SSL certificates
 		
 		//Creating a ChromeOptions object to access the inbuilt chrome options
 		ChromeOptions co = new ChromeOptions();
-		co.merge(ch); //merging the profile you have created to the chorme browser options.
+		co.merge(dc); //merging the profile you have created to the chorme browser options.
 		
 		System.setProperty("webdriver.chrome.driver", "/Users/Love/Documents/Drivers/chromedriver");
 		WebDriver driver = new ChromeDriver();
 		
 		//Now you can access an https site using a proxy in the company and simply surpass the SSL certificate and continue testing
 		driver.get("Any Https website URL with proxy server");
-
 	}
 }	
