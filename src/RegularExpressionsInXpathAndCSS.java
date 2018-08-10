@@ -13,5 +13,4 @@ public class RegularExpressionsInXpathAndCSS {
 		driver.findElement(By.xpath("//input[@id='login1']")).sendKeys("Hello");
 		driver.findElement(By.xpath("//input[contains(@id,'pas')]")).sendKeys("Pass123");
 	}
-
 }

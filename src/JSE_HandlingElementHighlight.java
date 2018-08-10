@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -5,6 +6,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
+import com.google.common.base.Function;
 
 
 public class JSE_HandlingElementHighlight {
@@ -16,19 +21,30 @@ public class JSE_HandlingElementHighlight {
 		driver.manage().deleteAllCookies();
 		
 		//driver.manage().timeouts().pageLoadTimeout(50, TimeUnit.SECONDS); //wait max of 50 seconds for the page load, otherwise terminate the script.
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //implicit wait
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //implicit wait
 		
 		driver.get("https://www.freecrm.com");
 		driver.findElement(By.name("username")).sendKeys("user");
 		driver.findElement(By.name("password")).sendKeys("Pass123");
 		
-		WebElement loginBtn = driver.findElement(By.xpath("//input[contains(@type,'submit')]"));
-		Thread.sleep(1000); //Exceptional case, when we have a splash page and our processor is very fast, so sometimes the element, even after being located is not clickable, as we have a splash page in front of the
+		//Using fluent wait to locate the login button on the page, since the login button is not readily available to be located due to 
+		//the occurrence of the splash page prior to the homepage.
+		@SuppressWarnings("deprecation")
+		FluentWait<WebDriver> w = new FluentWait<WebDriver>(driver)
+				.withTimeout(10000, TimeUnit.SECONDS)
+				.pollingEvery(250,TimeUnit.MILLISECONDS)
+				.ignoring(NoSuchElementException.class);
+		
+		WebElement loginBtn = w.until(new Function<WebDriver, WebElement>(){
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//input[contains(@type,'submit')]"));
+			}
+		});
 		flash(loginBtn, driver);
 		loginBtn.click();
 
 	}
-	
+
 	//IN our case we simply want to highlight the Login button and not clicking it for this we use JSE.
 	public static void flash(WebElement element, WebDriver driver) {
 		String bgColor = element.getCssValue("backgroundColor"); // To get the back ground color of that particular element.

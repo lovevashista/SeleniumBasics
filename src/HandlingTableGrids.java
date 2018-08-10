@@ -62,6 +62,6 @@ public class HandlingTableGrids {
 //		int rows = tablee.findElements(By.xpath("//div[@class='Table all rows common class']")).size();
 //		int thirdcolvalues = tablee.findElements(By.xpath("//div[@class='Table all rows common class']/div[3]")).size();
 //		//OR if you want to use css then
-//		int thirdcolvalues = tablee.findElements(By.cssSelector("div[@class='Table all rows common class'] div:nth-child(3)")).size();
+//		int thirdcolvalues = tablee.findElements(By.cssSelector("div[class='Table all rows common class'] div:nth-child(3)")).size();
 	}
 }

@@ -16,7 +16,7 @@ public class Locators {
 		driver.findElement(By.cssSelector("#pass")).sendKeys("Pass1234");
 		driver.findElement(By.xpath("//*[@id='u_0_8']")).click();
 		System.out.println(driver.findElement(By.xpath("//*[@id='globalContainer']/div[3]/div/div/div")).getText());
-	
+		
 	}
 
 }

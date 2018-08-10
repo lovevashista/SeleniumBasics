@@ -24,7 +24,7 @@ public class Xpath_Text_ParentChildTraversing{
 		System.out.println(driver.findElement(By.xpath("//div[@class='interview-question']/div/div/ul/li[@id = 'tablist1-tab1']/parent::ul")).getText());
 		System.out.println("Script executed successfully");
 		
-//		driver.findElement(By.xpath("dynamic parent xpath")).click(); //parent dynamic child click
+//		driver.findElement(By.xpath("dynamic parent xpath")).click(); //dynamic parent click
 //		driver.findElement(By.xpath("dynamicParent/dynamicChild")).click(); //1st dynamic child click
 //		driver.findElement(By.xpath("dynamicParent/dynamicChild/following-sibling::childtagName[1]")).click(); //2nd dynamic child click
 //		driver.findElement(By.xpath("dynamicParent/dynamicChild/following-sibling::childtagName[2]")).click(); //3rd dynamic child click

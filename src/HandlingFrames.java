@@ -32,6 +32,5 @@ public class HandlingFrames {
 		
 		//driver.switchTo.frame(index / webelement)
 		//to get the total number of frames in dom - driver.findelements(By.tagName("iframe OR frameset"))
-		
 	}
 }

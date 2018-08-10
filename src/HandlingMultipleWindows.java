@@ -32,6 +32,5 @@ public class HandlingMultipleWindows {
 		driver.switchTo().window(parentid);
 		System.out.println(driver.getTitle());
 		System.out.println("Success");
-		
 	}
 }

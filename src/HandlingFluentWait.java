@@ -44,6 +44,6 @@ public class HandlingFluentWait {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.id(""));
 			}
-		});
+		});	
 	}
 }
