@@ -5,7 +5,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.os.WindowsUtils;
-import org.openqa.selenium.support.ui.Select;
 import org.apache.commons.io.FileUtils;
 
 public class HandlingScreenshotsAndKillingProcesses {

@@ -23,6 +23,7 @@ public class HandlingTableGrids {
 		
 		//i. Grab the count of rows in the table
 		int rowcount = table.findElements(By.cssSelector("div[class='cb-col cb-col-100 cb-scrd-itms']")).size();  //13
+		System.out.println(rowcount);
 		
 		//ii. Grab the third child of the row (ie 3rd Column) in the CSS. OR //ii. Grab the total number of cells in the 3rd column from the table
 		int count = table.findElements(By.cssSelector("div[class='cb-col cb-col-100 cb-scrd-itms'] div:nth-child(3)")).size(); //Column containing the runs
@@ -58,10 +59,19 @@ public class HandlingTableGrids {
 		}else {
 			System.out.println("Not Equal");
 		}
-//		WebElement tablee = driver.findElement(By.xpath("Table xpath"));
-//		int rows = tablee.findElements(By.xpath("//div[@class='Table all rows common class']")).size();
-//		int thirdcolvalues = tablee.findElements(By.xpath("//div[@class='Table all rows common class']/div[3]")).size();
-//		//OR if you want to use css then
-//		int thirdcolvalues = tablee.findElements(By.cssSelector("div[class='Table all rows common class'] div:nth-child(3)")).size();
+////		WebElement tablee = driver.findElement(By.xpath("Table xpath"));
+////		int rows = tablee.findElements(By.xpath("//div[@class='Table all rows common class']")).size();
+////		int thirdcolvalues = tablee.findElements(By.xpath("//div[@class='Table all rows common class']/div[3]")).size();
+////		//OR if you want to use css then
+////		int thirdcolvalues = tablee.findElements(By.cssSelector("div[class='Table all rows common class'] div:nth-child(3)")).size();	
+//		
+//		//ONE MORE POINT:
+//		//Let's suppose you want to iterate the folloiwng xpath:
+//		//driver.findbyElement(By.xpath("\html\tbody\tr[i]\td[3]"))
+//		//using a for loop, iterate i and get the 3rd column value, to do this; its very simple:
+//		int rowcountt = driver.findElements(By.className("Rows Class")).size();
+//		for(int i=0; i<rowcountt; i++) {
+//			driver.findElement(By.xpath("/html/tbody/tr["+(i+1)+"]/td[3]"));
+//		}			
 	}
 }

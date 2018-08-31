@@ -1,4 +1,3 @@
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -32,6 +31,6 @@ public class HandlingSSLCertificates {
 		WebDriver driver = new ChromeDriver();
 		
 		//Now you can access an https site using a proxy in the company and simply surpass the SSL certificate and continue testing
-		driver.get("Any Https website URL with proxy server");
+		driver.get("Any Https website URL with proxy server");	
 	}
 }	

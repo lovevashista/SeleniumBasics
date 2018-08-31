@@ -6,6 +6,27 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * or next to next and so on..
  *To traverse back from child div to parent div, use xpath: //child-div-xpath/parent::parent-tagName
  */
+/**
+ * SCENARIO
+ * In HTML:
+ * <div class=<dynamic>>
+ * <ul class = <dynamic>>
+ * 	<li id='lii'>List1</li>
+ * 	<li>List2</li>
+ * 	<li>List3</li>
+ * </ul>
+ * </div>
+ * <div class=<dynamic>>
+ * <ul class = <dynamic>>
+ * 	<li id='liii'>List1</li>
+ * 	<li>List2</li>
+ * 	<li>List3</li>
+ * </ul>
+ * </div>
+ * 
+ * TEST CASE
+ * 1. Locate List1, List2 and List3 element from the fist div in our test script
+ */
 public class Xpath_Text_ParentChildTraversing{
 	public static void main(String[] args){
 		System.setProperty("webdriver.chrome.driver", "/Users/Love/Documents/Drivers/chromedriver");
@@ -24,9 +45,13 @@ public class Xpath_Text_ParentChildTraversing{
 		System.out.println(driver.findElement(By.xpath("//div[@class='interview-question']/div/div/ul/li[@id = 'tablist1-tab1']/parent::ul")).getText());
 		System.out.println("Script executed successfully");
 		
-//		driver.findElement(By.xpath("dynamic parent xpath")).click(); //dynamic parent click
-//		driver.findElement(By.xpath("dynamicParent/dynamicChild")).click(); //1st dynamic child click
-//		driver.findElement(By.xpath("dynamicParent/dynamicChild/following-sibling::childtagName[1]")).click(); //2nd dynamic child click
-//		driver.findElement(By.xpath("dynamicParent/dynamicChild/following-sibling::childtagName[2]")).click(); //3rd dynamic child click
+		/*SYNTAX*/
+		driver.findElement(By.xpath("//div[@class='ParentClass']"));
+		driver.findElement(By.xpath("//div[@class='ParentClass']/ul/li[@class='ChildClass']")); //first sibling
+		driver.findElement(By.xpath("//div[@class='ParentClass']/ul/li[@class='ChildClass']/following-sibling::li[1]")); //second sibling
+		driver.findElement(By.xpath("//div[@class='ParentClass']/ul/li[@class='ChildClass']/following-sibling::li[2]")); //third sibling
+		driver.findElement(By.xpath("//div[@class='ParentClass']/ul/li[@class='ChildClass']/parent::ul")); //back to the parent class
 	}
+	
+	
 }

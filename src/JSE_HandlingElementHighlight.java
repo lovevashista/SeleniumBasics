@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
@@ -7,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 
 import com.google.common.base.Function;
 
@@ -29,10 +29,9 @@ public class JSE_HandlingElementHighlight {
 		
 		//Using fluent wait to locate the login button on the page, since the login button is not readily available to be located due to 
 		//the occurrence of the splash page prior to the homepage.
-		@SuppressWarnings("deprecation")
 		FluentWait<WebDriver> w = new FluentWait<WebDriver>(driver)
-				.withTimeout(10000, TimeUnit.SECONDS)
-				.pollingEvery(250,TimeUnit.MILLISECONDS)
+				.withTimeout(Duration.ofMillis(20000))
+				.pollingEvery(Duration.ofMillis(250))
 				.ignoring(NoSuchElementException.class);
 		
 		WebElement loginBtn = w.until(new Function<WebDriver, WebElement>(){
@@ -44,7 +43,7 @@ public class JSE_HandlingElementHighlight {
 		loginBtn.click();
 
 	}
-
+	
 	//IN our case we simply want to highlight the Login button and not clicking it for this we use JSE.
 	public static void flash(WebElement element, WebDriver driver) {
 		String bgColor = element.getCssValue("backgroundColor"); // To get the back ground color of that particular element.
